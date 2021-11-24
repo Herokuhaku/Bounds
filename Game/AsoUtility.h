@@ -1,0 +1,44 @@
+#pragma once
+#include <string>
+#include <vector>
+#include "DxLib.h"
+#include "common/Vector3.h"
+static class AsoUtility
+{
+
+public:
+
+	static std::vector <std::string> Split(std::string& line, char delimiter);
+
+	// ラジアン(rad)から度(deg)
+	static double Rad2Deg(double rad);
+
+	// 度(deg)からラジアン(rad)
+	static double Deg2Rad(double deg);
+
+	// 0～360度の範囲に収める
+	static double DegIn360(double deg);
+
+	// 0(0)～2π(360度)の範囲に収める
+	static double RadIn2PI(double rad);
+
+	// 回転が少ない方の回転向きを取得する(時計回り:1、反時計回り:-1)
+	static int DirNearAroundRad(float from, float to);
+	
+	// 回転が少ない方の回転向きを取得する(時計回り:1、反時計回り:-1)
+	static int DirNearAroundDeg(float from, float to);
+	
+	// 線形補間
+	static double Lerp(double start, double end, double t);
+
+	// 角度の線形補間
+	static double LerpDeg(double start, double end, double t);
+
+	// 角度の線形補間
+	static Float3 RotXZPos(Float3 centerPos, Float3 radiusPos, double rad);
+
+	static double Magnitude(Float3 v);
+	static double Distance(Float3 v1, Float3 v2);
+
+};
+
